@@ -1,0 +1,68 @@
+import React from "react";
+import OwlCarousel from "react-owl-carousel";
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
+import service1 from "../assets/service1.png";
+import service2 from "../assets/service2.png";
+import service3 from "../assets/service3.png";
+import service4 from "../assets/service4.png";
+import service5 from "../assets/service5.png";
+
+const Services = () => {
+  const service = [
+    { img: service1, text: "Government Project Execution (State & Central)" },
+    { img: service2, text: "Residential, Commercial" },
+    { img: service3, text: "Industrial Construction" },
+    { img: service4, text: "Renovation & Remodeling" },
+    { img: service5, text: "Infrastructure Development" },
+  ];
+
+  const options = {
+    loop: true,
+    margin: 20,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
+    dots: false,
+    nav: true,
+    responsive: {
+      0: { items: 1 },
+      600: { items: 2 },
+      1000: { items: 3 },
+    },
+  };
+
+  return (
+    <div className="services-container" style={{ padding: "30px" }}>
+      <OwlCarousel className="owl-theme" {...options}>
+        {service.map((item, index) => (
+          <div
+            key={index}
+            className="service-card item"
+            style={{
+              textAlign: "center",
+              background: "#fff",
+              borderRadius: "10px",
+              boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+              padding: "15px",
+            }}
+          >
+            <img
+              src={item.img}
+              alt={item.text}
+              style={{
+                width: "100%",
+                borderRadius: "8px",
+                height: "180px",
+                objectFit: "cover",
+              }}
+            />
+            <p style={{ marginTop: "10px", fontWeight: "bold" }}>{item.text}</p>
+          </div>
+        ))}
+      </OwlCarousel>
+    </div>
+  );
+};
+
+export default Services;
